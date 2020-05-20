@@ -1,0 +1,16 @@
+
+<form action="/search" method="post">
+    <input type="text" name="search" placeholder="search">
+    <input type="submit" value="Search">
+<form>
+
+<ul>
+    <% @wands.each do |w| %>
+        <li><%= w.to_s %></li>
+        <form action="/wands/<%= w.id %>/delete" method="post">
+            <input type="submit" value="Delete">
+        </form>
+    <% end %>
+</ul>
+
+<a href="/wands/new">Create a New Wand</a>
